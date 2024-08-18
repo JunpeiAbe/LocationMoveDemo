@@ -1,0 +1,19 @@
+# Swift Package Manager
+.build/
+# SPMがビルド時に生成するディレクトリ
+
+# Xcode
+DerivedData/
+# Xcodeがビルドプロセス中に生成するキャッシュや中間ビルドファイルを格納するディレクトリ
+
+# macOS files
+.DS_Store
+# macOSでフォルダのビューオプションを記憶するためにファイルシステムに自動的に作成される隠しファイル。
+
+# Xcode specific
+xcuserdata/
+# Xcodeのユーザ固有データを含むディレクトリ
+
+# Logs
+*.log
+# ビルドプロセスやアプリケーション実行時に生成されるログファイル
