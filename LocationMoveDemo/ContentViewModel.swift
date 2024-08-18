@@ -10,11 +10,14 @@ class ContentViewModel: ObservableObject, LocationGetable {
     /// 現在地の座標
     @Published var currentLocation = CLLocationCoordinate2D(latitude: 35.170915, longitude: 136.881537)
     
-    var locationManager: LocationManager = LocationManager()
+    let locationManager: LocationManager = LocationManager()
+    let logManager: LogManager = .shared
     
     init() {
         self.locationManager.delegate = self
         self.locationManager.requestLocation()
+        let log = "\nGeofenceサークル半径:\(radius)"
+        logManager.writeLog(log)
     }
     
     func didUpdateLocation(_ location: CLLocationCoordinate2D) {
@@ -63,6 +66,8 @@ class ContentViewModel: ObservableObject, LocationGetable {
         formater.dateFormat = "yyyy/MM/dd HH時mm分ss秒"
         formater.locale = Locale(identifier: "ja")
         let formatedDate = formater.string(from: arrivalTime)
+        let log = "\nGeofenceサークル到達予想時刻：\(formatedDate)"
+        LogManager.shared.writeLog(log)
     }
 }
 
@@ -125,15 +130,17 @@ extension LocationManager: CLLocationManagerDelegate {
         if let location = locations.first {
             currentLocation = location.coordinate
             /// 速度(km/h)
-            let formateedSpeed = "\(location.speed * 3600 / 1000) km/h"
+            let formatedSpeed = "\(location.speed * 3600 / 1000) km/h"
             /// 速度(m/s)
-            let speed = location.speed
+            //let speed = location.speed
             let formater = DateFormatter()
             formater.dateFormat = "yyyy/MM/dd HH時mm分ss秒"
             formater.locale = Locale(identifier: "ja")
             let formatedDate = formater.string(from: Date())
+            /// 位置情報取得成功時間等のログ
+            let log = "\n位置情報取得時刻 \(formatedDate)\n現在地 \(location.coordinate)\nスピード \(formatedSpeed)"
+            LogManager.shared.writeLog(log)
             delegate?.didUpdateLocation(location.coordinate)
-            /// TODO：位置情報取得成功時間ログ登録
             locationManager.stopUpdatingLocation() // 一度取得したら停止する場合
         }
     }
@@ -145,6 +152,8 @@ extension LocationManager: CLLocationManagerDelegate {
             formater.dateFormat = "yyyy/MM/dd HH時mm分ss秒"
             formater.locale = Locale(identifier: "ja")
             let formatedDate = formater.string(from: Date())
+            let log = "############\nGeofenceサークル到達(検出)時刻:\(formatedDate)\n##########"
+            LogManager.shared.writeLog(log)
             /// 位置情報際取得
             self.requestLocation()
         }

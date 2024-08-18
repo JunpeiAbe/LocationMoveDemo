@@ -12,6 +12,7 @@
 		6843341A2C7200B2000AA753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 684334192C7200B2000AA753 /* Assets.xcassets */; };
 		6843341D2C7200B2000AA753 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6843341C2C7200B2000AA753 /* Preview Assets.xcassets */; };
 		684334242C720230000AA753 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684334232C720230000AA753 /* ContentViewModel.swift */; };
+		68F20B5D2C728AB9000F5E81 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F20B5C2C728AB8000F5E81 /* LogManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		684334192C7200B2000AA753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6843341C2C7200B2000AA753 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		684334232C720230000AA753 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		68F20B5C2C728AB8000F5E81 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				684334152C7200B1000AA753 /* LocationMoveDemoApp.swift */,
 				684334172C7200B1000AA753 /* ContentView.swift */,
 				684334232C720230000AA753 /* ContentViewModel.swift */,
+				68F20B5C2C728AB8000F5E81 /* LogManager.swift */,
 				684334192C7200B2000AA753 /* Assets.xcassets */,
 				6843341B2C7200B2000AA753 /* Preview Content */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F20B5D2C728AB9000F5E81 /* LogManager.swift in Sources */,
 				684334182C7200B1000AA753 /* ContentView.swift in Sources */,
 				684334162C7200B1000AA753 /* LocationMoveDemoApp.swift in Sources */,
 				684334242C720230000AA753 /* ContentViewModel.swift in Sources */,

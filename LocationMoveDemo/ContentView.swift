@@ -7,6 +7,17 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Button {
+                if let url = LogManager.shared.getLogFileURL() {
+                    print("ログファイルのURL:",url)
+                }
+            } label: {
+                Label(
+                    title: { Text("保存") },
+                    icon: { Image(uiImage: .checkmark) }
+                )
+            }
+
             Map(interactionModes: .all) {
                 UserAnnotation()
                 MapCircle(
